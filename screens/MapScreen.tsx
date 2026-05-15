@@ -9,7 +9,6 @@ import {
   View,
 } from "react-native";
 import MapView, { Marker, PROVIDER_DEFAULT, Region } from "react-native-maps";
-// import { DUMMY_CACHES } from "../utils/dummyCaches";
 import { useCacheStore } from "../utils/cacheStore";
 
 import CacheMarker from "../components/CacheMarker";
@@ -28,10 +27,8 @@ const FALLBACK_REGION: Region = {
 export default function MapScreen() {
   const mapRef = useRef<MapView>(null);
   const [region, setRegion] = useState<Region | null>(null);
-  const [userLocation, setUserLocation] =
-    useState<Location.LocationObject | null>(null);
+  const [userLocation, setUserLocation] = useState<Location.LocationObject | null>(null);
   const [selectedCache, setSelectedCache] = useState<GPXCache | null>(null);
-  // const { caches, isFound } = useCacheStore();
   const setCaches = useCacheStore((s) => s.setCaches);
   const caches = useCacheStore((s) => s.caches);
   const isFound = useCacheStore((s) => s.isFound);
@@ -98,30 +95,6 @@ export default function MapScreen() {
   };
   const selectedCacheFound = selectedCache ? isFound(selectedCache) : false;
 
-//   const darkMapStyle = [
-//   {
-//     elementType: "geometry",
-//     stylers: [{ color: "#212121" }],
-//   },
-//   {
-//     elementType: "labels.text.fill",
-//     stylers: [{ color: "#757575" }],
-//   },
-//   {
-//     elementType: "labels.text.stroke",
-//     stylers: [{ color: "#212121" }],
-//   },
-//   {
-//     featureType: "road",
-//     elementType: "geometry",
-//     stylers: [{ color: "#383838" }],
-//   },
-//   {
-//     featureType: "water",
-//     elementType: "geometry",
-//     stylers: [{ color: "#17263c" }],
-//   },
-// ];
 
   return (
     <View style={styles.container}>
@@ -135,8 +108,8 @@ export default function MapScreen() {
         removeClippedSubviews
         maxZoomLevel={18}
         minZoomLevel={5}
-        loadingEnabled
-        loadingIndicatorColor="#2e7d32"
+        // loadingEnabled
+        // loadingIndicatorColor="#2e7d32"
         customMapStyle={darkMapStyle}
       >
         {caches.map((cache: any) => (
