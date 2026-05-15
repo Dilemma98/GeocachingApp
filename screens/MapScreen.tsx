@@ -15,7 +15,8 @@ import { useCacheStore } from "../utils/cacheStore";
 import CacheMarker from "../components/CacheMarker";
 import CacheDetails from "../components/CacheDetails";
 import { GPXCache } from "../models/Cache";
-import { initDB, loadCaches } from '../db/database';
+import { initDB, loadCaches } from "../db/database";
+import { darkMapStyle } from "../constants/mapStyle";
 
 const FALLBACK_REGION: Region = {
   latitude: 57.6969,
@@ -27,28 +28,31 @@ const FALLBACK_REGION: Region = {
 export default function MapScreen() {
   const mapRef = useRef<MapView>(null);
   const [region, setRegion] = useState<Region | null>(null);
-  const [userLocation, setUserLocation] = useState<Location.LocationObject | null>(null);
-  const [selectedCache, setSelectedCache] = useState<GPXCache | null>(null); 
+  const [userLocation, setUserLocation] =
+    useState<Location.LocationObject | null>(null);
+  const [selectedCache, setSelectedCache] = useState<GPXCache | null>(null);
   // const { caches, isFound } = useCacheStore();
-const setCaches = useCacheStore((s) => s.setCaches);
+  const setCaches = useCacheStore((s) => s.setCaches);
   const caches = useCacheStore((s) => s.caches);
-const isFound = useCacheStore((s) => s.isFound);
-const username = useCacheStore((s) => s.username);
+  const isFound = useCacheStore((s) => s.isFound);
+  const username = useCacheStore((s) => s.username);
 
-useEffect(() => {
-  initDB();
-  loadCaches().then((cached) => {
-    if (cached.length > 0) setCaches(cached);
-  });
-}, [username]);
+  useEffect(() => {
+    initDB();
+    loadCaches().then((cached) => {
+      if (cached.length > 0) setCaches(cached);
+    });
+  }, [username]);
 
   useEffect(() => {
     let subscriber: Location.LocationSubscription | null = null;
-    if(caches){
-      console.log("Caches from store", caches)
-      console.log("cachetype",caches.map(c => c.type));
+    if (caches) {
+      console.log("Caches from store", caches);
+      console.log(
+        "cachetype",
+        caches.map((c) => c.type),
+      );
     }
-  
 
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -92,8 +96,32 @@ useEffect(() => {
       longitudeDelta: 0.05,
     });
   };
-  const selectedCacheFound =
-  selectedCache ? isFound(selectedCache) : false;
+  const selectedCacheFound = selectedCache ? isFound(selectedCache) : false;
+
+//   const darkMapStyle = [
+//   {
+//     elementType: "geometry",
+//     stylers: [{ color: "#212121" }],
+//   },
+//   {
+//     elementType: "labels.text.fill",
+//     stylers: [{ color: "#757575" }],
+//   },
+//   {
+//     elementType: "labels.text.stroke",
+//     stylers: [{ color: "#212121" }],
+//   },
+//   {
+//     featureType: "road",
+//     elementType: "geometry",
+//     stylers: [{ color: "#383838" }],
+//   },
+//   {
+//     featureType: "water",
+//     elementType: "geometry",
+//     stylers: [{ color: "#17263c" }],
+//   },
+// ];
 
   return (
     <View style={styles.container}>
@@ -105,10 +133,11 @@ useEffect(() => {
         showsUserLocation
         showsMyLocationButton={false}
         removeClippedSubviews
-  maxZoomLevel={18}
-  minZoomLevel={5}
-  loadingEnabled
-  loadingIndicatorColor="#2e7d32"
+        maxZoomLevel={18}
+        minZoomLevel={5}
+        loadingEnabled
+        loadingIndicatorColor="#2e7d32"
+        customMapStyle={darkMapStyle}
       >
         {caches.map((cache: any) => (
           <Marker
