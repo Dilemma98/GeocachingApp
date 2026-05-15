@@ -100,11 +100,11 @@ export default function Profile() {
             <Text style={styles.statNumber}>{totalCount}</Text>
             <Text style={styles.statLabel}>Totalt</Text>
           </View>
-          <View style={[styles.statBox, { backgroundColor: "#e8f5e9" }]}>
+          <View style={[styles.statBox]}>
             <Text style={[styles.statNumber, { color: "#2e7d32" }]}>{foundCount}</Text>
             <Text style={styles.statLabel}>Hittade</Text>
           </View>
-          <View style={[styles.statBox, { backgroundColor: "#fff3e0" }]}>
+          <View style={[styles.statBox]}>
             <Text style={[styles.statNumber, { color: "#e65100" }]}>{notFoundCount}</Text>
             <Text style={styles.statLabel}>Kvar</Text>
           </View>
@@ -168,10 +168,21 @@ export default function Profile() {
   );
 }
 
+const COLORS = {
+  background: "#2f3a2d",
+  card: "#3a4637",
+  cardLight: "#465442",
+  accent: "#7cb342",
+  accentDark: "#2e7d32",
+  text: "#f4f4f4",
+  textSecondary: "#e1eedb",
+  border: "#556052",
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: COLORS.background,
     paddingTop: 60,
     width: "100%"
   },
@@ -188,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,
-    elevation: 4,
+   elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -196,15 +207,15 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#1a1a1a",
+    color: "white",
   },
-  section: {
-    backgroundColor: "#fff",
+  section: { 
+    backgroundColor: COLORS.card,
     borderRadius: 16,
     padding: 16,
     marginHorizontal: 16,
     marginBottom: 16,
-    elevation: 2,
+    elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 6,
@@ -212,7 +223,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#1a1a1a",
+    color: COLORS.text,
     marginBottom: 12,
   },
   statsRow: {
@@ -222,7 +233,7 @@ const styles = StyleSheet.create({
   },
   statBox: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: COLORS.cardLight,
     borderRadius: 12,
     padding: 12,
     alignItems: "center",
@@ -230,11 +241,11 @@ const styles = StyleSheet.create({
   statNumber: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#1a1a1a",
+    color: COLORS.text,
   },
   statLabel: {
     fontSize: 12,
-    color: "#777",
+    color: COLORS.textSecondary,
     marginTop: 2,
   },
   typeRow: {
@@ -242,16 +253,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: 6,
     borderTopWidth: 1,
-    borderTopColor: "#f0f0f0",
+     borderTopColor: COLORS.border,
   },
   typeLabel: {
     fontSize: 14,
-    color: "#555",
+    color: COLORS.text,
   },
   typeCount: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#1a1a1a",
+    color: COLORS.textSecondary,
   },
   label: {
     fontSize: 14,
@@ -265,14 +276,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 10,
-    padding: 12,
-    fontSize: 15,
-    backgroundColor: "#fff",
-    color: "#1a1a1a",
+     flex: 1,
+  borderWidth: 1,
+  borderColor: COLORS.border,
+  borderRadius: 12,
+  padding: 12,
+  fontSize: 15,
+  backgroundColor: COLORS.cardLight,
+  color: COLORS.text,
   },
   saveButton: {
     backgroundColor: "#2e7d32",
@@ -288,12 +299,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    backgroundColor: "#fff",
+     backgroundColor: COLORS.card,
     padding: 14,
     borderRadius: 14,
+    borderColor: COLORS.border,
     marginHorizontal: 16,
     marginBottom: 12,
-    elevation: 2,
+    elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 6,
@@ -307,12 +319,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#fff",
+     backgroundColor: COLORS.card,
     padding: 14,
     borderRadius: 14,
+     borderColor: COLORS.border,
     marginHorizontal: 16,
     marginBottom: 12,
-    elevation: 2,
+   elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 6,
@@ -326,12 +339,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.card,
     padding: 12,
     borderRadius: 12,
+    borderColor: COLORS.border,
     marginHorizontal: 16,
     marginBottom: 8,
-    elevation: 1,
+    elevation: 6,
     shadowColor: "#000",
     shadowOpacity: 0.04,
     shadowRadius: 4,
@@ -343,11 +357,11 @@ const styles = StyleSheet.create({
   cacheName: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#1a1a1a",
+     color: COLORS.text,
   },
   cacheCode: {
     fontSize: 12,
-    color: "#888",
+      color: COLORS.textSecondary,
     marginTop: 2,
   },
 });

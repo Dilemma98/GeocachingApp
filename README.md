@@ -1,50 +1,114 @@
-# Welcome to your Expo app 👋
+# Geocaching App 🗺️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile app built with React Native + Expo for importing, viewing and managing Geocaching GPX files directly on your phone.
 
-## Get started
+The app focuses on offline usage, performance and a clean mobile-first experience.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- 📂 Import GPX files from Geocaching
+- 🗺️ View caches on a map
+- 📍 Cache details with descriptions and metadata
+- ✅ Mark caches as found
+- ❤️ Favorite system
+- 💾 Local persistence with SQLite
+- 📱 Built with Expo + React Native
+- ⚡ Optimized for mobile performance
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 🛠️ Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- React Native
+- Expo
+- TypeScript
+- Zustand
+- SQLite
+- react-native-maps
+- react-native-render-html
+- @gorhom/bottom-sheet
+- fast-xml-parser
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## 📸 Screenshots
 
-When you're ready, run:
+_Add screenshots here later_
 
-```bash
-npm run reset-project
+```md
+![Map View](./screenshots/map.png)
+![Cache Details](./screenshots/details.png)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Clone the repository
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+git clone https://github.com/Dilemma98/geocaching-app.git
+```
 
-## Join the community
+### 2. Install dependencies
 
-Join our community of developers creating universal apps.
+```bash
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Start the app
+
+```bash
+npx expo start
+```
+
+You can run the app using:
+
+- Android Emulator
+- iOS Simulator
+- Expo Go
+
+---
+
+## 📂 GPX Import
+
+The app supports importing GPX files exported from Geocaching.
+
+Imported caches and logs are stored locally using SQLite for offline access and improved performance.
+
+---
+
+## 🧠 Current Focus
+
+The app is currently focused on:
+
+- Better performance
+- Improved offline support
+- Smoother UI/UX
+- Persistent local storage
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Search caches
+- [ ] Filtering and sorting
+- [ ] Offline maps
+- [ ] Sync logs
+- [ ] Statistics/profile system
+- [ ] Map clustering
+- [ ] APK release
+
+---
+
+## 🚧 Status
+
+This project is currently under active development.
+
+---
+
+## 👩‍💻 Author
+
+Built by [Emma Högdal](https://github.com/Dilemma98)
