@@ -29,6 +29,7 @@ export default function MapScreen() {
   const [region, setRegion] = useState<Region | null>(null);
   const [userLocation, setUserLocation] = useState<Location.LocationObject | null>(null);
   const [selectedCache, setSelectedCache] = useState<GPXCache | null>(null);
+  
   const setCaches = useCacheStore((s) => s.setCaches);
   const caches = useCacheStore((s) => s.caches);
   const isFound = useCacheStore((s) => s.isFound);

@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
   importText: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#2e7d32",
+    color: "white",
   },
   toggleButton: {
     flexDirection: "row",
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
   toggleText: {
     fontSize: 15,
     fontWeight: "600",
-    color: "#2e7d32",
+    color: "white",
   },
   cacheCard: {
     flexDirection: "row",

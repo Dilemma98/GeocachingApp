@@ -53,6 +53,10 @@ export default function CacheDetails({ cache, found, onClose }: Props) {
       >
         <View style={styles.header}>
           <Text style={styles.name}>{cache.name}</Text>
+          <View style={{ display: "flex", flexDirection: "row", gap: 10}}>
+            <View style={{ marginTop: 5}}>
+              <MaterialCommunityIcons name="heart-outline" size={28} color={"red"} />
+            </View>
           {found ? (
             <MaterialCommunityIcons
               name="emoticon-happy"
@@ -61,10 +65,10 @@ export default function CacheDetails({ cache, found, onClose }: Props) {
             />
           ) : (
             <TouchableOpacity
-onPress={() => {
-  logCache(cache.code);
-  bottomRef.current?.close();
-}}
+              onPress={() => {
+                logCache(cache.code);
+                bottomRef.current?.close();
+              }}
               style={styles.quickLogButton}
             >
               <MaterialCommunityIcons
@@ -74,6 +78,7 @@ onPress={() => {
               />
             </TouchableOpacity>
           )}
+          </View>
         </View>
         <Text style={styles.code}># {cache.code}</Text>
         <Text style={styles.type}>{cache.type}</Text>
@@ -93,25 +98,25 @@ onPress={() => {
           <Text style={styles.infoTitle}>Beskrivning</Text>
 
           {renderHTML && (
-          <RenderHTML
-            contentWidth={width}
-            // source={{ html: cleanedHtml  ?? "" }}
-            source={{ html: cache.description ?? "" }}
-            baseStyle={styles.infoText}
-            renderersProps={{
-              img: {
-                enableExperimentalPercentWidth: true,
-              },
-            }}
-            tagsStyles={{
-              img: {
-                alignSelf: "center",
-                maxWidth: width * 0.8,
-                height: "auto",
-                borderRadius: 12,
-              },
-            }}
-          />
+            <RenderHTML
+              contentWidth={width}
+              // source={{ html: cleanedHtml  ?? "" }}
+              source={{ html: cache.description ?? "" }}
+              baseStyle={styles.infoText}
+              renderersProps={{
+                img: {
+                  enableExperimentalPercentWidth: true,
+                },
+              }}
+              tagsStyles={{
+                img: {
+                  alignSelf: "center",
+                  maxWidth: width * 0.8,
+                  height: "auto",
+                  borderRadius: 12,
+                },
+              }}
+            />
           )}
         </View>
       </BottomSheetScrollView>

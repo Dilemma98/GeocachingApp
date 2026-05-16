@@ -1,10 +1,17 @@
-// nearby.tsx och profile.tsx — samma innehåll för nu
-import { View, Text } from 'react-native';
+import { View } from "react-native";
+import FavouritesScreen from "../../screens/FavouritesScreen";
 
-export default function FavouritesScreen() {
+export default function Favourites() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <Text>Favourites</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
+      <Favourites />
     </View>
   );
 }
