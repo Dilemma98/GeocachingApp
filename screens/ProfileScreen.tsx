@@ -56,8 +56,10 @@ export default function Profile() {
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
-
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{ paddingBottom: 40 }}
+    >
       {/* HEADER */}
       <View style={styles.header}>
         <View style={styles.avatar}>
@@ -101,11 +103,15 @@ export default function Profile() {
             <Text style={styles.statLabel}>Totalt</Text>
           </View>
           <View style={[styles.statBox]}>
-            <Text style={[styles.statNumber, { color: "#2e7d32" }]}>{foundCount}</Text>
+            <Text style={[styles.statNumber, { color: "#2e7d32" }]}>
+              {foundCount}
+            </Text>
             <Text style={styles.statLabel}>Hittade</Text>
           </View>
           <View style={[styles.statBox]}>
-            <Text style={[styles.statNumber, { color: "#e65100" }]}>{notFoundCount}</Text>
+            <Text style={[styles.statNumber, { color: "#e65100" }]}>
+              {notFoundCount}
+            </Text>
             <Text style={styles.statLabel}>Kvar</Text>
           </View>
         </View>
@@ -132,7 +138,9 @@ export default function Profile() {
           onPress={() => setShowCaches(!showCaches)}
         >
           <Text style={styles.toggleText}>
-            {showCaches ? "Dölj importerade cacher" : `Visa ${totalCount} importerade cacher`}
+            {showCaches
+              ? "Dölj importerade cacher"
+              : `Visa ${totalCount} importerade cacher`}
           </Text>
           <MaterialCommunityIcons
             name={showCaches ? "chevron-up" : "chevron-down"}
@@ -143,26 +151,30 @@ export default function Profile() {
       )}
 
       {showCaches && (
-        <FlatList
-          data={caches}
-          keyExtractor={(item) => item.code}
-          scrollEnabled={false}
-          renderItem={({ item }) => (
-            <View style={styles.cacheCard}>
-              <View style={styles.cacheLeft}>
-                <MaterialCommunityIcons
-                  name={isFound(item) ? "emoticon-happy" : "map-marker"}
-                  size={20}
-                  color={isFound(item) ? "#ffd000" : "#2e7d32"}
-                />
+        <View style={{ paddingBottom: 120 }}>
+          <FlatList
+            data={caches}
+            keyExtractor={(item) => item.code}
+            scrollEnabled={false}
+            renderItem={({ item }) => (
+              <View style={styles.cacheCard}>
+                <View style={styles.cacheLeft}>
+                  <MaterialCommunityIcons
+                    name={isFound(item) ? "emoticon-happy" : "map-marker"}
+                    size={20}
+                    color={isFound(item) ? "#ffd000" : "#2e7d32"}
+                  />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.cacheName}>{item.name}</Text>
+                  <Text style={styles.cacheCode}>
+                    {item.code} • {item.type}
+                  </Text>
+                </View>
               </View>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.cacheName}>{item.name}</Text>
-                <Text style={styles.cacheCode}>{item.code} • {item.type}</Text>
-              </View>
-            </View>
-          )}
-        />
+            )}
+          />
+        </View>
       )}
     </ScrollView>
   );
@@ -184,7 +196,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     paddingTop: 60,
-    width: "100%"
+    width: "100%",
   },
   header: {
     alignItems: "center",
@@ -199,7 +211,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,
-   elevation: 10,
+    elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -209,7 +221,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
   },
-  section: { 
+  section: {
     backgroundColor: COLORS.card,
     borderRadius: 16,
     padding: 16,
@@ -253,7 +265,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: 6,
     borderTopWidth: 1,
-     borderTopColor: COLORS.border,
+    borderTopColor: COLORS.border,
   },
   typeLabel: {
     fontSize: 14,
@@ -276,14 +288,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-     flex: 1,
-  borderWidth: 1,
-  borderColor: COLORS.border,
-  borderRadius: 12,
-  padding: 12,
-  fontSize: 15,
-  backgroundColor: COLORS.cardLight,
-  color: COLORS.text,
+    flex: 1,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 15,
+    backgroundColor: COLORS.cardLight,
+    color: COLORS.text,
   },
   saveButton: {
     backgroundColor: "#2e7d32",
@@ -299,7 +311,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-     backgroundColor: COLORS.card,
+    backgroundColor: COLORS.card,
     padding: 14,
     borderRadius: 14,
     borderColor: COLORS.border,
@@ -319,13 +331,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-     backgroundColor: COLORS.card,
+    backgroundColor: COLORS.card,
     padding: 14,
     borderRadius: 14,
-     borderColor: COLORS.border,
+    borderColor: COLORS.border,
     marginHorizontal: 16,
     marginBottom: 12,
-   elevation: 10,
+    elevation: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 6,
@@ -357,11 +369,11 @@ const styles = StyleSheet.create({
   cacheName: {
     fontSize: 14,
     fontWeight: "600",
-     color: COLORS.text,
+    color: COLORS.text,
   },
   cacheCode: {
     fontSize: 12,
-      color: COLORS.textSecondary,
+    color: COLORS.textSecondary,
     marginTop: 2,
   },
 });
