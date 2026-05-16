@@ -11,7 +11,7 @@ export default function Favourites() {
         backgroundColor: "white",
       }}
     >
-      <Favourites />
+      <FavouritesScreen />
     </View>
   );
 }

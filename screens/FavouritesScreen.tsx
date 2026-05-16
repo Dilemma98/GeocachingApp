@@ -6,9 +6,9 @@ import { GPXCache } from "../models/Cache";
 import { useCacheStore } from "../utils/cacheStore";
 
 const mockedFavourites = [
-  { code: "GC524321", name: "Lillån skobutik", type: "Mystery" },
-  { code: "GC096443", name: "Kumla Market", type: "Traditional" },
-  { code: "GC432674", name: "Svegs gammelgård", type: "Letterbox" },
+  { code: "GC524321", name: "Supersura SilverSara", type: "Mystery" },
+  { code: "GC096443", name: "Forsande forsen", type: "Traditional" },
+  { code: "GC432674", name: "Häxan Surtant", type: "Letterbox" },
 ];
 
 const COLORS = {
@@ -77,6 +77,7 @@ export default function FavoritesScreen(){
         backgroundColor: COLORS.background,
         paddingTop: 60,
         paddingHorizontal: 16,
+        width: "100%"
       },
       title: {
         fontSize: 28,
